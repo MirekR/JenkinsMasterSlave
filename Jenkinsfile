@@ -3,10 +3,6 @@ node('TestNode') {
     
   stage("FirstStage") {
     sh "echo 'Hey hello'"
-    
-    InitUtils {
-        echo 'buuuuuuu'
-    }    
   }
   
   stage("SecondStage") {
