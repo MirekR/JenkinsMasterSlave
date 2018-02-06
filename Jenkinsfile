@@ -1,10 +1,22 @@
-@Library('JenkinsSharedLib@master') _
-
 node('TestNode') {
+  @Library('JenkinsSharedLib@master') _    
+    
   stage("FirstStage") {
     sh "echo 'Hey hello'"
     
-    InitUtils.doStuff()
+    InitUtils {
+        echo 'buuuuuuu'
+    }    
+  }
+  
+  stage("SecondStage") {
+    InitUtils {
+        echo 'buuuuuuu'
+    }    
+  }
+  
+  stage("ThirdStage") {
+    otherUtils.doStuff()  
   }
 }
 
