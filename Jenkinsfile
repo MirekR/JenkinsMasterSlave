@@ -1,5 +1,5 @@
-node('node') {
+node('TestNode') {
   stage("FirstStage") {
-    plog "Hey hello"
+    System.out.println "Hey hello"
   }
 }
