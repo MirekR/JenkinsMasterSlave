@@ -1,3 +1,9 @@
+
+stage('Init data') {
+  sh 'ls'
+  sh 'pwd'
+}
+
 node('TestNode') {
   @Library('JenkinsSharedLib@master') _    
     
@@ -13,6 +19,10 @@ node('TestNode') {
   
   stage("ThirdStage") {
     otherUtils.doStuff()  
+  }
+
+  stage("FourthStage") {
+    copiedUtils.doStuff()  
   }
 }
 
