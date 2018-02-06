@@ -1,5 +1,5 @@
 node('TestNode') {
   stage("FirstStage") {
-    System.out.println "Hey hello"
+    sh "echo 'Hey hello'"
   }
 }
