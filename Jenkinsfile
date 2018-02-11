@@ -2,9 +2,8 @@
 libPath = "/var/jenkins_home/workspace/pipelines/JenkinsSharedLib/vars"
 // libPath = "/var/jenkins_home/workflow-libs/JenkinsSharedLib/vars"
 
-SDLC_NODE('TestNode', [libPath]) {
+SDLC_NODE('TestNode', [libPath]) { libs ->
    
-
   stage("FirstStage") {
     sh "echo 'Hey hello'"
 
