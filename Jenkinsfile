@@ -1,17 +1,9 @@
 @Library('SdlcLight@master') _  
 libPath = "/var/jenkins_home/workspace/pipelines/JenkinsSharedLib/vars"
 
-libs = libraryLoader.loadLibraries([libPath])
-
-stage("TestLibraries") {
-	libs.each{
-	    key, value -> print key;
-	}
-}
-
-libs.SDLC_NODE('TestNode') {
+SDLC_NODE('TestNode', [libPath]) {libs ->
    
-  libs.stage("FirstStage") {
+  stage("FirstStage") {
     sh "echo 'Hey hello'"
 
     libs.each{
@@ -19,7 +11,7 @@ libs.SDLC_NODE('TestNode') {
 	}
   }
   
-  libs.stage("SecondStage") {
+  stage("SecondStage") {
   	print libs['InitUtils']
     libs['InitUtils'] {
         echo 'buuuuuuu'
