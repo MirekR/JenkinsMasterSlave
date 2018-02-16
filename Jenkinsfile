@@ -6,23 +6,23 @@ SDLC_NODE('TestNode', [libPath]) {libs ->
   stage("FirstStage") {
     sh "echo 'Hey hello'"
 
-    libs.each{
+    libs.each {
 	    key, value -> print key;
 	}
   }
   
   stage("SecondStage") {
   	print libs['InitUtils']
-    libs['InitUtils'] {
+    InitUtils {
         echo 'buuuuuuu'
     }    
   }
   
-  libs.stage("ThirdStage") {
-    libs.otherUtils.doStuff()  
+  stage("ThirdStage") {
+    otherUtils.doStuff()  
   }
 
-  libs.stage("FourthStage") {
+  stage("FourthStage") {
     //libs['copiedUtils'].doStuff()  
   }
 }
