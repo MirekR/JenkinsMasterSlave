@@ -2,6 +2,13 @@
 libPath = "/var/jenkins_home/workspace/pipelines/JenkinsSharedLib/vars"
 
 libs = libraryLoader.loadLibraries([libPath])
+
+stage("TestLibraries") {
+	libs.each{
+	    key, value -> print key;
+	}
+}
+
 libs.SDLC_NODE('TestNode') {
    
   libs.stage("FirstStage") {
