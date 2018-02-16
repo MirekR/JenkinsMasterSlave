@@ -1,10 +1,10 @@
 @Library('SdlcLight@master') _  
 libPath = "/var/jenkins_home/workspace/pipelines/JenkinsSharedLib/vars"
-// libPath = "/var/jenkins_home/workflow-libs/JenkinsSharedLib/vars"
 
-SDLC_NODE('TestNode', [libPath]) { libs ->
+def libs = libraryLoader.loadLibraries([libPath])
+libs.SDLC_NODE('TestNode') {
    
-  stage("FirstStage") {
+  libs.stage("FirstStage") {
     sh "echo 'Hey hello'"
 
     libs.each{
@@ -12,18 +12,18 @@ SDLC_NODE('TestNode', [libPath]) { libs ->
 	}
   }
   
-  stage("SecondStage") {
+  libs.stage("SecondStage") {
   	print libs['InitUtils']
-    // libs['InitUtils'] {
-    //     echo 'buuuuuuu'
-    // }    
+    libs['InitUtils'] {
+        echo 'buuuuuuu'
+    }    
   }
   
-  stage("ThirdStage") {
-    libs['otherUtils'].doStuff()  
+  libs.stage("ThirdStage") {
+    libs.otherUtils.doStuff()  
   }
 
-  stage("FourthStage") {
+  libs.stage("FourthStage") {
     //libs['copiedUtils'].doStuff()  
   }
 }
