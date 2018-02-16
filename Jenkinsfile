@@ -1,7 +1,7 @@
 @Library('SdlcLight@master') _  
 libPath = "/var/jenkins_home/workspace/pipelines/JenkinsSharedLib/vars"
 
-def libs = libraryLoader.loadLibraries([libPath])
+libs = libraryLoader.loadLibraries([libPath])
 libs.SDLC_NODE('TestNode') {
    
   libs.stage("FirstStage") {
