@@ -13,7 +13,7 @@ SDLC_NODE('TestNode', [libPath]) {libs ->
   
   stage("SecondStage") {
   	print libs['InitUtils']
-    libs.InitUtils {
+    libs['InitUtils'] {
         echo 'buuuuuuu'
     }    
   }
